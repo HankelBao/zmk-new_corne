@@ -58,10 +58,10 @@ layers:
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:menu-up$$', s: '$$mdi:mouse$$'}
   - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '-', s: _}
+  - {t: '=', s: +}
   - {t: '[', s: '{'}
   - {t: ']', s: '}'}
-  - {t: \, s: '|'}
-  - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: '$$mdi:backspace$$', type: backspace}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '1', s: '!'}
