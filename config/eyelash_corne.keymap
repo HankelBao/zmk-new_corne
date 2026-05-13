@@ -43,6 +43,18 @@
 };
 
 / {
+    behaviors {
+        lt_space: lt_space {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
+            bindings = <&mo>, <&kp>;
+            hold-trigger-key-positions = <7 8 9 10 11 12 22 23 24 25 26 27 36 37 38 39 40 41>;
+        };
+    };
+
     rgb_encoder: rgb_encoder {
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
@@ -75,7 +87,7 @@
 &kp TAB    &kp Q  &kp W  &kp E     &kp R  &kp T                                    &kp UP                          &kp Y        &kp U  &kp I      &kp O    &kp P     &kp BSPC
 &mt LCTRL ESC  &kp A  &kp S  &kp D     &kp F  &kp G                     &kp LEFT        &none           &kp RIGHT        &kp H        &kp J  &kp K      &kp L    &lt 2 SEMI  &lt 3 SQT
 &kp LSHFT  &kp Z  &kp X  &kp C     &kp V  &kp B        &kp C_MUTE                    &kp DOWN                        &kp N        &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp BSLH
-                         &kp LGUI  &kp LALT  &mo 1                                               &kp ENTER  &lt 1 SPACE  &none
+                         &kp LGUI  &kp LALT  &mo 1                                               &kp ENTER  &lt_space 1 SPACE  &none
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
