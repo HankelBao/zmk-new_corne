@@ -43,18 +43,6 @@
 };
 
 / {
-    behaviors {
-        lt_space: lt_space {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <150>;
-            bindings = <&mo>, <&kp>;
-            hold-trigger-key-positions = <7 8 9 10 11 12 22 23 24 25 26 27 36 37 38 39 40 41>;
-        };
-    };
-
     rgb_encoder: rgb_encoder {
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
@@ -87,7 +75,7 @@
 &kp TAB    &kp Q  &kp W  &kp E     &kp R  &kp T                                    &kp UP                          &kp Y        &kp U  &kp I      &kp O    &kp P     &kp BSPC
 &mt LCTRL ESC  &kp A  &kp S  &kp D     &kp F  &kp G                     &kp LEFT        &none           &kp RIGHT        &kp H        &kp J  &kp K      &kp L    &lt 2 SEMI  &lt 3 SQT
 &kp LSHFT  &kp Z  &kp X  &kp C     &kp V  &kp B        &kp C_MUTE                    &kp DOWN                        &kp N        &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp BSLH
-                         &kp LGUI  &kp LALT  &mo 1                                               &kp ENTER  &lt_space 1 SPACE  &none
+                         &kp LALT  &mo 1  &kp LGUI                                               &kp ENTER  &kp SPACE  &none
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
@@ -96,10 +84,10 @@
         lower_layer {
             display-name = "NUMBER";
             bindings = <
-&trans  &kp N1           &kp N2          &kp N3        &kp N4        &kp N5                                         &mmv MOVE_UP                     &kp GRAVE  &kp N7     &kp N8  &kp N9  &kp LBKT   &kp RBKT
-&trans  &bt BT_CLR_ALL   &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3                   &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &kp MINUS  &kp N4     &kp N5  &kp N6  &kp EQUAL  &kp DEL
-&trans  &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &trans        &trans        &rgb_ug RGB_EFF  &kp C_MUTE                    &mmv MOVE_DOWN                   &kp PLUS   &kp N1     &kp N2  &kp N3  &kp N0     &none
-                                         &trans        &trans        &trans                                                                          &trans     &trans     &trans
+&none   &none            &kp MINUS       &kp EQUAL     &kp GRAVE     &none                                          &mmv MOVE_UP                     &none      &kp LBKT  &kp RBKT  &kp BSLH  &none      &kp BSPC
+&trans  &kp N1           &kp N2          &kp N3        &kp N4        &kp N5                         &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &kp N6     &kp N7    &kp N8    &kp N9    &kp N0     &kp DEL
+&trans  &none            &none           &none         &none         &none            &kp C_MUTE                    &mmv MOVE_DOWN                   &none      &none     &none     &none     &none      &none
+                                         &trans        &trans        &trans                                                                          &trans     &trans    &trans
             >;
 
             sensor-bindings = <&scroll_encoder>;
@@ -120,9 +108,9 @@
         layer_3 {
             display-name = "Fn";
             bindings = <
-&studio_unlock  &kp F1      &kp F2     &kp F3       &kp F4     &kp F5                                  &mmv MOVE_UP                     &kp F10    &kp F7  &kp F8  &kp F9  &kp F11         &kp F12
-&trans          &trans      &trans     &trans       &trans     &trans                  &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &none      &kp F4  &kp F5  &kp F6  &kp PRINTSCREEN  &trans
-&trans          &sys_reset  &trans     &bootloader  &trans     &trans    &kp C_MUTE                    &mmv MOVE_DOWN                   &none      &kp F1  &kp F2  &kp F3  &bootloader      &sys_reset
+&studio_unlock  &kp F1      &kp F2        &kp F3        &kp F4        &kp F5                                  &mmv MOVE_UP                     &kp F10    &kp F7  &kp F8  &kp F9  &kp F11          &kp F12
+&trans          &bt BT_CLR_ALL  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3                &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &none      &kp F4  &kp F5  &kp F6  &kp PRINTSCREEN  &trans
+&trans          &sys_reset  &trans        &bootloader   &trans        &trans        &kp C_MUTE                    &mmv MOVE_DOWN                   &none      &kp F1  &kp F2  &kp F3  &bootloader      &sys_reset
                                        &trans       &trans     &trans                                                                   &trans     &trans  &trans
             >;
 
