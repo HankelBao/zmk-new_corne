@@ -43,6 +43,18 @@
 };
 
 / {
+    behaviors {
+        lt_space: lt_space {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
+            bindings = <&mo>, <&kp>;
+            hold-trigger-key-positions = <7 8 9 10 11 12 22 23 24 25 26 27 36 37 38 39 40 41>;
+        };
+    };
+
     rgb_encoder: rgb_encoder {
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
@@ -73,9 +85,9 @@
             display-name = "QWERTY";
             bindings = <
 &kp TAB    &kp Q  &kp W  &kp E     &kp R  &kp T                                    &kp UP                          &kp Y        &kp U  &kp I      &kp O    &kp P     &kp BSPC
-&mt LCTRL ESC  &kp A  &kp S  &kp D     &kp F  &kp G                     &kp LEFT        &none           &kp RIGHT        &kp H        &kp J  &kp K      &kp L    &lt 2 SEMI  &lt 3 SQT
-&kp LSHFT  &kp Z  &kp X  &kp C     &kp V  &kp B        &kp C_MUTE                    &kp DOWN                        &kp N        &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp BSLH
-                         &kp LALT  &mo 1  &kp LGUI                                               &kp ENTER  &kp SPACE  &none
+&mt LCTRL ESC  &kp A  &kp S  &kp D     &kp F  &kp G                     &kp LEFT        &none           &kp RIGHT        &kp H        &kp J  &kp K      &kp L    &kp SEMI  &lt 3 SQT
+&kp LSHFT  &kp Z  &kp X  &kp C     &kp V  &kp B        &kp C_MUTE                    &kp DOWN                        &kp N        &kp M  &kp COMMA  &kp DOT  &kp FSLH  &lt 2 BSLH
+                         &kp LALT  &lt_space 1 SPACE  &kp LGUI                                               &kp ENTER  &lt_space 1 SPACE  &none
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
@@ -84,9 +96,9 @@
         lower_layer {
             display-name = "NUMBER";
             bindings = <
-&none   &none            &kp MINUS       &kp EQUAL     &kp GRAVE     &none                                          &mmv MOVE_UP                     &none      &kp MINUS  &kp EQUAL  &kp LBKT  &kp RBKT  &kp BSPC
-&trans  &kp N1           &kp N2          &kp N3        &kp N4        &kp N5                         &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &kp N6     &kp N7    &kp N8    &kp N9    &kp N0     &kp DEL
-&trans  &none            &none           &none         &none         &none            &kp C_MUTE                    &mmv MOVE_DOWN                   &none      &none     &none     &none     &none      &none
+&kp GRAVE  &kp EXCL    &kp AT      &kp HASH   &kp DLLR  &kp PRCNT                                       &mmv MOVE_UP                     &none      &kp N1  &kp N2  &kp N3  &kp N4  &kp N5
+&trans     &kp CARET   &kp AMPS    &kp ASTRK  &kp LPAR  &kp RPAR                       &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &none      &kp N6  &kp N7  &kp N8  &kp N9  &kp N0
+&trans     &kp MINUS   &kp EQUAL   &kp LBKT   &kp RBKT  &none           &kp C_MUTE                    &mmv MOVE_DOWN                   &none      &none   &none   &none   &none   &none
                                          &trans        &trans        &trans                                                                          &trans     &trans    &trans
             >;
 
@@ -96,9 +108,9 @@
         raise_layer {
             display-name = "NAV";
             bindings = <
-&trans  &trans        &trans        &trans     &trans     &trans                                   &mmv MOVE_UP                     &kp LG(LEFT)  &kp LA(LEFT)   &kp LA(RIGHT)  &kp LG(RIGHT)  &kp LA(BSPC)  &kp LG(BSPC)
-&trans  &trans        &trans        &trans     &trans     &trans                   &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &kp LEFT      &kp DOWN       &kp UP         &kp RIGHT      &kp LG(Z)     &kp LG(LS(Z))
-&trans  &trans        &trans        &trans     &trans     &trans     &trans                        &mmv MOVE_DOWN                   &kp LG(UP)    &kp LG(DOWN)   &kp PG_UP      &kp PG_DN      &none         &none
+&trans  &trans        &trans        &trans     &trans     &trans                                   &mmv MOVE_UP                     &none         &none          &none          &kp UP         &none         &none
+&trans  &trans        &trans        &trans     &trans     &trans                   &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &none         &kp LG(LEFT)   &kp LEFT       &kp RIGHT      &kp LG(RIGHT) &none
+&trans  &trans        &trans        &trans     &trans     &trans     &trans                        &mmv MOVE_DOWN                   &none         &kp LA(BSPC)   &kp DOWN       &kp LA(LEFT)   &kp LA(RIGHT) &none
                                     &trans     &trans     &trans                                                                   &trans        &trans         &trans
             >;
 
