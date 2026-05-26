@@ -44,8 +44,8 @@ layers:
   - {t: /, s: '?'}
   - {t: \, h: NAV, s: '|'}
   - NUMBER
-  - $$mdi:apple-keyboard-option$$
   - LGUI
+  - $$mdi:apple-keyboard-option$$
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - $$mdi:keyboard-space$$
   - NUMBER
