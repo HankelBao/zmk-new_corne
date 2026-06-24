@@ -64,6 +64,18 @@
             bindings = <&soft_off>;
             key-positions = <1 15 29>;
         };
+
+        hr_scroll {
+            bindings = <&kp LG(LS(J))>;
+            key-positions = <23 24>;
+            timeout-ms = <50>;
+        };
+
+        hr_click {
+            bindings = <&kp LG(LS(SPACE))>;
+            key-positions = <37 38>;
+            timeout-ms = <50>;
+        };
     };
 
     keymap {
@@ -84,9 +96,9 @@
         lower_layer {
             display-name = "NUMBER";
             bindings = <
-&kp GRAVE  &kp EXCL    &kp AT      &kp HASH   &kp DLLR  &kp PRCNT                                       &trans                          &none      &kp N7  &kp N8  &kp N9  &kp LBRC   &kp RBRC
-&trans     &kp CARET   &kp AMPS    &kp ASTRK  &kp LPAR  &kp RPAR                       &trans          &trans          &trans           &none      &kp N4  &kp N5  &kp N6  &kp MINUS  &kp PLUS
-&trans     &kp UNDER   &kp LBKT    &kp RBKT   &kp BSLH  &kp PIPE        &kp C_MUTE                    &trans                          &none      &kp N1  &kp N2  &kp N3  &kp N0     &kp EQUAL
+&kp GRAVE  &kp EXCL    &kp AT      &kp HASH    &kp DLLR  &kp PRCNT                                      &trans                          &kp CARET  &kp AMPS  &kp ASTRK  &kp LPAR  &kp RPAR  &kp MINUS
+&trans     &kp N1      &kp N2      &kp N3      &kp N4    &kp N5                         &trans          &trans          &trans           &kp N6     &kp N7    &kp N8     &kp N9    &kp N0    &kp PLUS
+&trans     &kp UNDER   &kp LBKT    &kp RBKT    &kp BSLH  &kp PIPE        &kp C_MUTE                    &trans                          &none      &none     &none      &kp LBRC  &kp RBRC  &kp EQUAL
                                          &trans        &trans        &trans                                                                          &trans     &trans    &trans
             >;
 
