@@ -110,9 +110,9 @@
         lower_layer {
             display-name = "NUMBER";
             bindings = <
-&kp GRAVE  &kp EXCL    &kp AT      &kp HASH    &kp DLLR  &kp PRCNT                                      &trans                          &kp CARET  &kp AMPS  &kp ASTRK  &kp LPAR  &kp RPAR  &kp MINUS
-&trans     &kp N1      &kp N2      &kp N3      &kp N4    &kp N5                         &trans          &trans          &trans           &kp N6     &kp N7    &kp N8     &kp N9    &kp N0    &kp PLUS
-&trans     &kp UNDER   &kp LBKT    &kp RBKT    &kp BSLH  &kp PIPE        &kp C_MUTE                    &trans                          &none      &none     &none      &kp LBRC  &kp RBRC  &kp EQUAL
+&kp GRAVE  &kp EXCL    &kp AT      &kp HASH    &kp DLLR  &kp PRCNT                                      &trans                          &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &trans
+&trans     &kp N1      &kp N2      &kp N3      &kp N4    &kp N5                         &trans          &trans          &trans           &kp N6     &kp N7     &kp N8     &kp N9    &kp N0    &kp EQUAL
+&trans     &kp UNDER   &kp LBKT    &kp RBKT    &kp BSLH  &kp PIPE        &kp C_MUTE                    &trans                          &kp PLUS   &kp MINUS  &kp COMMA  &kp DOT   &kp FSLH  &trans
                                          &trans        &trans        &trans                                                                          &trans     &trans    &trans
             >;
 
@@ -122,9 +122,9 @@
         raise_layer {
             display-name = "NAV";
             bindings = <
-&trans  &trans        &mmv MOVE_UP   &trans     &trans     &trans                                   &trans                          &none          &none          &kp UP         &none          &none         &kp LA(BSPC)
-&trans  &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &trans &trans                  &trans          &trans          &trans           &kp LG(LEFT)   &kp LEFT       &kp RIGHT      &kp LG(RIGHT)  &none        &none
-&trans  &trans        &trans        &trans     &trans     &trans     &trans                        &trans                          &none          &kp DOWN       &kp LA(LEFT)   &kp LA(RIGHT)  &none        &none
+&trans  &trans          &mmv MOVE_UP    &trans           &trans  &trans                                 &trans                          &kp PG_UP  &kp LA(LEFT)  &kp UP    &kp LA(RIGHT)  &kp DEL   &kp LA(BSPC)
+&trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &trans                  &trans         &trans          &trans           &kp PG_DN  &kp LEFT      &kp DOWN  &kp RIGHT      &kp BSPC  &trans
+&trans  &trans          &trans          &trans           &trans  &trans  &trans                        &trans                          &none      &kp LG(LEFT)  &none     &kp LG(RIGHT)  &none     &trans
                                     &mkp LCLK  &mkp RCLK  &trans                                                                   &trans        &trans         &trans
             >;
 
