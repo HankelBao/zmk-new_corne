@@ -106,8 +106,8 @@ layers:
   - $
   - '%'
   - {t: '$$mdi:transfer$$', type: trans}
-  - ^
-  - '&'
+  - +
+  - {t: '-', s: _}
   - '*'
   - (
   - )
@@ -135,8 +135,8 @@ layers:
   - '|'
   - $$mdi:volume-off$$
   - {t: '$$mdi:transfer$$', type: trans}
-  - +
-  - {t: '-', s: _}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
+  - {t: '$$mdi:minus-circle-outline$$', type: none}
   - {t: ',', s: <}
   - {t: ., s: '>'}
   - {t: /, s: '?'}
