@@ -36,7 +36,7 @@
 };
 
 &mt {
-    flavor = "balanced";
+    flavor = "tap-preferred";
     tapping-term-ms = <200>;
     quick-tap-ms = <150>;
     require-prior-idle-ms = <125>;
@@ -86,8 +86,8 @@
         default_layer {
             display-name = "QWERTY";
             bindings = <
-&kp ESC    &kp Q  &kp W  &kp E     &kp R  &kp T                                    &msc SCRL_DOWN                   &kp Y        &kp U  &kp I      &kp O    &kp P     &kp BSPC
-&mt LCTRL TAB  &kp A  &kp S  &kp D     &kp F  &kp G                     &msc SCRL_LEFT  &mkp MCLK       &msc SCRL_RIGHT  &kp H        &kp J  &kp K      &kp L    &kp SEMI  &lt 4 SQT
+&kp TAB    &kp Q  &kp W  &kp E     &kp R  &kp T                                    &msc SCRL_DOWN                   &kp Y        &kp U  &kp I      &kp O    &kp P     &kp BSPC
+&mt LCTRL ESC  &kp A  &kp S  &kp D     &kp F  &kp G                   &msc SCRL_LEFT  &mkp MCLK       &msc SCRL_RIGHT  &kp H        &kp J  &kp K      &kp L    &kp SEMI  &lt 4 SQT
 &kp LSHFT  &kp Z  &kp X  &kp C     &kp V  &kp B        &kp C_MUTE                    &msc SCRL_UP                     &kp N        &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp ENTER
                          &kp LGUI  &mo 2  &kp LALT                                               &kp SPACE  &mo 2  &mo 3
             >;
@@ -110,8 +110,8 @@
         lower_layer {
             display-name = "NUMBER";
             bindings = <
-&kp GRAVE  &kp EXCL    &kp AT      &kp HASH    &kp DLLR  &kp PRCNT                                      &trans                          &kp CARET  &kp AMPS  &kp ASTRK  &kp LPAR  &kp RPAR  &trans
-&trans     &kp N1      &kp N2      &kp N3      &kp N4    &kp N5                         &trans          &trans          &trans           &kp N6     &kp N7    &kp N8     &kp N9    &kp N0    &kp EQUAL
+&kp TILDE  &kp EXCL    &kp AT      &kp HASH    &kp DLLR  &kp PRCNT                                      &trans                          &kp CARET  &kp AMPS  &kp ASTRK  &kp LPAR  &kp RPAR  &trans
+&kp GRAVE  &kp N1      &kp N2      &kp N3      &kp N4    &kp N5                       &trans          &trans          &trans           &kp N6     &kp N7    &kp N8     &kp N9    &kp N0    &kp EQUAL
 &trans     &kp MINUS   &kp PLUS    &kp UNDER   &kp BSLH  &kp PIPE        &kp C_MUTE                    &trans                          &none      &kp LBRC  &kp RBRC   &kp LBKT  &kp RBKT  &trans
                                          &trans        &trans        &trans                                                                          &trans     &trans    &trans
             >;
