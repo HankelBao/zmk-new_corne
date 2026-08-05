@@ -110,9 +110,9 @@
         lower_layer {
             display-name = "NUMBER";
             bindings = <
-&kp GRAVE  &kp EXCL    &kp AT      &kp HASH    &kp DLLR  &kp PRCNT                                      &trans                          &kp PLUS  &kp MINUS  &kp ASTRK  &kp LPAR  &kp RPAR  &trans
-&trans     &kp N1      &kp N2      &kp N3      &kp N4    &kp N5                         &trans          &trans          &trans           &kp N6    &kp N7     &kp N8     &kp N9    &kp N0    &kp EQUAL
-&trans     &kp UNDER   &kp LBKT    &kp RBKT    &kp BSLH  &kp PIPE        &kp C_MUTE                    &trans                          &none     &none      &kp COMMA  &kp DOT   &kp FSLH  &trans
+&kp GRAVE  &kp EXCL    &kp AT      &kp HASH    &kp DLLR  &kp PRCNT                                      &trans                          &kp CARET  &kp AMPS  &kp ASTRK  &kp LPAR  &kp RPAR  &trans
+&trans     &kp N1      &kp N2      &kp N3      &kp N4    &kp N5                         &trans          &trans          &trans           &kp N6     &kp N7    &kp N8     &kp N9    &kp N0    &kp EQUAL
+&trans     &kp MINUS   &kp PLUS    &kp UNDER   &kp BSLH  &kp PIPE        &kp C_MUTE                    &trans                          &none      &kp LBRC  &kp RBRC   &kp LBKT  &kp RBKT  &trans
                                          &trans        &trans        &trans                                                                          &trans     &trans    &trans
             >;
 
