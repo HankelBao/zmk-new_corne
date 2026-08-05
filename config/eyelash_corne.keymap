@@ -122,9 +122,9 @@
         raise_layer {
             display-name = "NAV";
             bindings = <
-&trans  &trans          &mmv MOVE_UP    &trans           &trans  &trans                                 &trans                          &kp PG_UP  &kp LA(LEFT)  &kp UP    &kp LA(RIGHT)  &kp DEL   &kp LA(BSPC)
-&trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &trans                  &trans         &trans          &trans           &kp PG_DN  &kp LEFT      &kp DOWN  &kp RIGHT      &kp BSPC  &trans
-&trans  &trans          &trans          &trans           &trans  &trans  &trans                        &trans                          &none      &kp LG(LEFT)  &none     &kp LG(RIGHT)  &none     &trans
+&trans  &trans          &mmv MOVE_UP    &trans           &trans  &trans                                 &trans                          &none  &none  &none         &kp LA(LEFT)  &kp UP         &kp LA(BSPC)
+&trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &trans                  &trans         &trans          &trans           &none  &none  &kp LG(LEFT)  &kp LEFT      &kp RIGHT      &kp LG(RIGHT)
+&trans  &trans          &trans          &trans           &trans  &trans  &trans                        &trans                          &none  &none  &none         &kp DOWN      &kp LA(RIGHT)  &trans
                                     &mkp LCLK  &mkp RCLK  &trans                                                                   &trans        &trans         &trans
             >;
 
