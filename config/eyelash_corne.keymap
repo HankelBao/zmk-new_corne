@@ -65,13 +65,6 @@
             key-positions = <1 15 29>;
         };
 
-        hr_scroll {
-            bindings = <&kp LG(LS(J))>;
-            key-positions = <23 24>;
-            timeout-ms = <50>;
-            layers = <0 2 3 4>;
-        };
-
         hr_click {
             bindings = <&kp LG(LS(SPACE))>;
             key-positions = <37 38>;
