@@ -248,9 +248,6 @@ layers:
 combos:
 - p: [1, 15, 29]
   k: '&soft_off'
-- p: [23, 24]
-  k: Gui+Sft+J
-  l: [QWERTY, NUMBER, NAV, Fn]
 - p: [37, 38]
   k: Gui+Sft+$$mdi:keyboard-space$$
   l: [QWERTY, NUMBER, NAV, Fn]

@@ -554,12 +554,6 @@ rect.held, rect.combo.held {
 <text x="103" y="100" class="combo tap"><tspan style="font-size: 67%">&amp;soft_off</tspan></text>
 </g>
 <g class="combo combopos-1">
-<rect rx="6" ry="6" x="742" y="74" width="28" height="26" class="combo"/>
-<text x="756" y="87" class="combo tap">
-<tspan x="756" dy="-0.6em">Gui+</tspan><tspan x="756" dy="1.2em">Sft+J</tspan>
-</text>
-</g>
-<g class="combo combopos-2">
 <rect rx="6" ry="6" x="742" y="130" width="28" height="26" class="combo"/>
 <use href="#mdi:keyboard-space" xlink:href="#mdi:keyboard-space" x="747" y="134" height="18" width="18.0" class="combo tap glyph mdi:keyboard-space"/>
 </g>
@@ -1079,12 +1073,6 @@ rect.held, rect.combo.held {
 <text x="103" y="100" class="combo tap"><tspan style="font-size: 67%">&amp;soft_off</tspan></text>
 </g>
 <g class="combo combopos-1">
-<rect rx="6" ry="6" x="742" y="74" width="28" height="26" class="combo"/>
-<text x="756" y="87" class="combo tap">
-<tspan x="756" dy="-0.6em">Gui+</tspan><tspan x="756" dy="1.2em">Sft+J</tspan>
-</text>
-</g>
-<g class="combo combopos-2">
 <rect rx="6" ry="6" x="742" y="130" width="28" height="26" class="combo"/>
 <use href="#mdi:keyboard-space" xlink:href="#mdi:keyboard-space" x="747" y="134" height="18" width="18.0" class="combo tap glyph mdi:keyboard-space"/>
 </g>
@@ -1342,12 +1330,6 @@ rect.held, rect.combo.held {
 <text x="103" y="100" class="combo tap"><tspan style="font-size: 67%">&amp;soft_off</tspan></text>
 </g>
 <g class="combo combopos-1">
-<rect rx="6" ry="6" x="742" y="74" width="28" height="26" class="combo"/>
-<text x="756" y="87" class="combo tap">
-<tspan x="756" dy="-0.6em">Gui+</tspan><tspan x="756" dy="1.2em">Sft+J</tspan>
-</text>
-</g>
-<g class="combo combopos-2">
 <rect rx="6" ry="6" x="742" y="130" width="28" height="26" class="combo"/>
 <use href="#mdi:keyboard-space" xlink:href="#mdi:keyboard-space" x="747" y="134" height="18" width="18.0" class="combo tap glyph mdi:keyboard-space"/>
 </g>
@@ -1620,12 +1602,6 @@ rect.held, rect.combo.held {
 <text x="103" y="100" class="combo tap"><tspan style="font-size: 67%">&amp;soft_off</tspan></text>
 </g>
 <g class="combo combopos-1">
-<rect rx="6" ry="6" x="742" y="74" width="28" height="26" class="combo"/>
-<text x="756" y="87" class="combo tap">
-<tspan x="756" dy="-0.6em">Gui+</tspan><tspan x="756" dy="1.2em">Sft+J</tspan>
-</text>
-</g>
-<g class="combo combopos-2">
 <rect rx="6" ry="6" x="742" y="130" width="28" height="26" class="combo"/>
 <use href="#mdi:keyboard-space" xlink:href="#mdi:keyboard-space" x="747" y="134" height="18" width="18.0" class="combo tap glyph mdi:keyboard-space"/>
 </g>
