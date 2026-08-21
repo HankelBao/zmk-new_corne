@@ -47,7 +47,7 @@ layers:
   - NUMBER
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - $$mdi:keyboard-space$$
-  - $$mdi:keyboard-esc$$
+  - {t: '$$mdi:keyboard-esc$$', h: NUMBER}
   - $$mdi:apple-keyboard-option$$
   COLEMAK:
   - {t: '$$mdi:transfer$$', type: trans}
@@ -146,7 +146,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {type: held alternate}
-  - {type: held alternate}
+  - {t: '$$mdi:transfer$$', type: trans}
   NAV:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -251,6 +251,3 @@ combos:
 - p: [37, 38]
   k: Gui+Sft+$$mdi:keyboard-space$$
   l: [QWERTY, NUMBER, NAV, Fn]
-- p: [46, 47]
-  k: NUMBER
-  l: [QWERTY, COLEMAK]
