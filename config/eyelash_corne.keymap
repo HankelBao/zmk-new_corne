@@ -56,7 +56,13 @@
         compatible = "zmk,behavior-hold-tap";
         #binding-cells = <2>;
         flavor = "tap-unless-interrupted";
-        tapping-term-ms = <500>;
+
+        // Effectively "wait forever": with this flavor the timer only ever
+        // forces a tap, so a term nobody can outlast means the key is Esc
+        // only when released untouched, and the layer whenever interrupted.
+        // Not INT32_MAX -- the remaining time is truncated to int32 before
+        // being handed to K_MSEC().
+        tapping-term-ms = <60000>;
         bindings = <&mo>, <&kp>;
     };
 
