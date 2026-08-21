@@ -145,8 +145,8 @@ layers:
   - {type: held}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - {type: held alternate}
+  - {type: held alternate}
   NAV:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -251,3 +251,6 @@ combos:
 - p: [37, 38]
   k: Gui+Sft+$$mdi:keyboard-space$$
   l: [QWERTY, NUMBER, NAV, Fn]
+- p: [46, 47]
+  k: NUMBER
+  l: [QWERTY, COLEMAK]
