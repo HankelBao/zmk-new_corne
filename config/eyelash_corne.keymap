@@ -29,7 +29,7 @@
 &soft_off { hold-time-ms = <2000>; };
 
 &lt {
-    flavor = "balanced";
+    flavor = "tap-preferred";
     tapping-term-ms = <200>;
     quick-tap-ms = <150>;
     require-prior-idle-ms = <125>;
@@ -49,23 +49,6 @@
         bindings = <&rgb_ug RGB_BRI>, <&rgb_ug RGB_BRD>;
     };
 
-    // Esc on its own; number layer only when another key interrupts it.
-    // Dedicated instance so it keeps quick-tap / require-prior-idle disabled
-    // (both default to -1) instead of inheriting the &lt tuning.
-    esc_num: esc_num {
-        compatible = "zmk,behavior-hold-tap";
-        #binding-cells = <2>;
-        flavor = "tap-unless-interrupted";
-
-        // Effectively "wait forever": with this flavor the timer only ever
-        // forces a tap, so a term nobody can outlast means the key is Esc
-        // only when released untouched, and the layer whenever interrupted.
-        // Not INT32_MAX -- the remaining time is truncated to int32 before
-        // being handed to K_MSEC().
-        tapping-term-ms = <60000>;
-        bindings = <&mo>, <&kp>;
-    };
-
     scroll_encoder: scroll_encoder {
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
@@ -81,13 +64,6 @@
             bindings = <&soft_off>;
             key-positions = <1 15 29>;
         };
-
-        hr_click {
-            bindings = <&kp LG(LS(SPACE))>;
-            key-positions = <37 38>;
-            timeout-ms = <50>;
-            layers = <0 2 3 4>;
-        };
     };
 
     keymap {
@@ -97,21 +73,21 @@
             display-name = "QWERTY";
             bindings = <
 &kp TAB    &kp Q  &kp W  &kp E     &kp R  &kp T                                    &msc SCRL_DOWN                   &kp Y        &kp U  &kp I      &kp O    &kp P     &kp BSPC
-&kp LCTRL  &kp A  &kp S  &kp D     &kp F  &kp G                   &msc SCRL_LEFT  &mkp MCLK       &msc SCRL_RIGHT  &kp H        &kp J  &kp K      &kp L    &kp SEMI  &lt 4 SQT
-&kp LSHFT  &kp Z  &kp X  &kp C     &kp V  &kp B        &kp C_MUTE                    &msc SCRL_UP                     &kp N        &kp M  &kp COMMA  &kp DOT  &kp FSLH  &mo 3
-                         &kp LGUI  &mo 2  &kp ENTER                                              &kp SPACE  &esc_num 2 ESC  &kp LALT
+&kp ESC    &kp A  &kp S  &kp D     &kp F  &kp G                   &msc SCRL_LEFT  &mkp MCLK       &msc SCRL_RIGHT  &kp H        &kp J  &kp K      &kp L    &kp SEMI  &lt 4 SQT
+&kp LSHFT  &kp Z  &kp X  &kp C     &kp V  &kp B        &kp C_MUTE                    &msc SCRL_UP                     &kp N        &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp LGUI
+                         &kp LALT  &kp LCTRL  &kp ENTER                                          &kp SPACE  &mo 2  &mo 3
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
         };
 
-        colemak_layer {
-            display-name = "COLEMAK";
+        mac_layer {
+            display-name = "MAC";
             bindings = <
-&trans  &trans  &trans  &kp F   &kp P   &kp G                                    &trans                          &kp J   &kp L  &kp U      &kp Y    &kp SEMI  &trans
-&trans  &trans  &kp R   &kp S   &kp T   &kp D                     &trans          &trans          &trans           &trans  &kp N  &kp E      &kp I    &kp O     &trans
-&trans  &trans  &trans  &trans  &trans  &trans       &trans                       &trans                          &kp K   &trans &trans     &trans   &trans    &trans
-                        &trans  &trans  &trans                                               &trans     &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                  &trans                          &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                  &trans          &trans          &trans           &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                          &trans                          &trans  &trans  &trans  &trans  &trans  &kp LCTRL
+                        &trans  &kp LGUI  &trans                                                &trans  &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
@@ -122,7 +98,7 @@
             bindings = <
 &kp TILDE  &kp EXCL    &kp AT      &kp HASH    &kp DLLR  &kp PRCNT                                      &trans                          &kp CARET  &kp AMPS  &kp ASTRK  &kp LPAR  &kp RPAR  &trans
 &kp GRAVE  &kp N1      &kp N2      &kp N3      &kp N4    &kp N5                       &trans          &trans          &trans           &kp N6     &kp N7    &kp N8     &kp N9    &kp N0    &kp EQUAL
-&trans     &kp MINUS   &kp PLUS    &kp UNDER   &kp BSLH  &kp PIPE        &kp C_MUTE                    &trans                          &none      &kp LBRC  &kp RBRC   &kp LBKT  &kp RBKT  &none
+&trans     &kp MINUS   &kp PLUS    &kp UNDER   &kp BSLH  &kp PIPE        &kp C_MUTE                    &trans                          &none      &kp LBRC  &kp RBRC   &kp LBKT  &kp RBKT  &trans
                                          &trans        &trans        &trans                                                                          &trans     &trans    &trans
             >;
 
@@ -133,8 +109,8 @@
             display-name = "NAV";
             bindings = <
 &trans  &trans          &mmv MOVE_UP    &trans           &trans  &trans                                 &trans                          &none  &none  &none         &kp UP        &none          &none
-&trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &trans                  &trans         &trans          &trans           &none  &kp LG(LEFT)  &kp LEFT      &kp RIGHT     &kp LG(RIGHT)  &none
-&trans  &trans          &trans          &trans           &trans  &trans  &trans                        &trans                          &none  &none         &kp DOWN      &kp LA(LEFT)  &kp LA(RIGHT)  &trans
+&trans  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans  &trans                  &trans         &trans          &trans           &none  &kp HOME      &kp LEFT      &kp RIGHT     &kp END        &none
+&trans  &trans          &trans          &trans           &trans  &trans  &trans                        &trans                          &none  &none         &kp DOWN      &kp LC(LEFT)  &kp LC(RIGHT)  &trans
                                     &mkp LCLK  &mkp RCLK  &trans                                                                   &trans        &trans         &trans
             >;
 
@@ -146,23 +122,11 @@
             bindings = <
 &studio_unlock  &kp F1      &kp F2        &kp F3        &kp F4        &kp F5                                  &trans                          &kp F10    &kp F7  &kp F8  &kp F9  &kp F11          &kp F12
 &bt BT_CLR_ALL  &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                &trans          &trans          &trans           &tog 1     &kp F4  &kp F5  &kp F6  &kp PRINTSCREEN  &trans
-&trans          &rgb_ug RGB_TOG  &rgb_ug RGB_EFF  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &rgb_ug RGB_HUI  &kp C_MUTE                    &trans                          &tog 5     &kp F1  &kp F2  &kp F3  &bootloader      &sys_reset
+&trans          &rgb_ug RGB_TOG  &rgb_ug RGB_EFF  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &rgb_ug RGB_HUI  &kp C_MUTE                    &trans                          &none      &kp F1  &kp F2  &kp F3  &bootloader      &sys_reset
                                        &trans       &trans     &trans                                                                   &trans     &trans  &trans
             >;
 
             sensor-bindings = <&scroll_encoder>;
-        };
-
-        linux_layer {
-            display-name = "LINUX";
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                                  &trans                          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans          &trans          &trans           &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans                          &trans                          &trans  &trans  &trans  &trans  &trans  &trans
-                        &kp LALT  &trans  &trans                                                &trans  &trans  &kp LGUI
-            >;
-
-            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
         };
     };
 };
