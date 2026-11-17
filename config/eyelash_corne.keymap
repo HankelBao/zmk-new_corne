@@ -49,17 +49,17 @@
         bindings = <&rgb_ug RGB_BRI>, <&rgb_ug RGB_BRD>;
     };
 
-    // Enter on tap, NAV layer on hold. Dedicated instance so it can stay
-    // "balanced" (NAV + arrow resolves as soon as the arrow is released)
-    // while &lt is tap-preferred for the quote key.
-    nav_ent: nav_ent {
+    // Tab on tap, a modifier on hold (Ctrl; Gui on the MAC layer).
+    // "balanced" so Ctrl+key registers as soon as the other key is tapped,
+    // without waiting out the tapping term. No require-prior-idle: Ctrl
+    // shortcuts must work immediately after typing.
+    mod_tab: mod_tab {
         compatible = "zmk,behavior-hold-tap";
         #binding-cells = <2>;
         flavor = "balanced";
         tapping-term-ms = <200>;
         quick-tap-ms = <150>;
-        require-prior-idle-ms = <125>;
-        bindings = <&mo>, <&kp>;
+        bindings = <&kp>, <&kp>;
     };
 
     scroll_encoder: scroll_encoder {
@@ -86,7 +86,7 @@
                 <&macro_release &mo 6 &mo 5 &kp LALT &kp LGUI>;
         };
 
-        // First Tab while the thumb is held: swap Gui for Alt, leave Alt
+        // First Tab (the key left of A) while the thumb is held: swap Gui for Alt, leave Alt
         // held, and move to the SWITCH layer where Tab is a plain Tab, so
         // further taps keep cycling. Alt goes down before Gui comes up so
         // the host never sees a bare Gui tap.
@@ -117,10 +117,10 @@
         default_layer {
             display-name = "QWERTY";
             bindings = <
-&kp TAB    &kp Q  &kp W  &kp E     &kp R  &kp T                                    &msc SCRL_DOWN                   &kp Y        &kp U  &kp I      &kp O    &kp P     &kp BSPC
-&kp ESC    &kp A  &kp S  &kp D     &kp F  &kp G                   &msc SCRL_LEFT  &mkp MCLK       &msc SCRL_RIGHT  &kp H        &kp J  &kp K      &kp L    &kp SEMI  &lt 4 SQT
+&kp ESC    &kp Q  &kp W  &kp E     &kp R  &kp T                                    &msc SCRL_DOWN                   &kp Y        &kp U  &kp I      &kp O    &kp P     &kp BSPC
+&mod_tab LCTRL TAB  &kp A  &kp S  &kp D  &kp F  &kp G                  &msc SCRL_LEFT  &mkp MCLK       &msc SCRL_RIGHT  &kp H        &kp J  &kp K      &kp L    &kp SEMI  &lt 4 SQT
 &kp LSHFT  &kp Z  &kp X  &kp C     &kp V  &kp B        &kp C_MUTE                    &msc SCRL_UP                     &kp N        &kp M  &kp COMMA  &kp DOT  &kp FSLH  &mo 3
-                         &gui_app  &kp LCTRL  &nav_ent 3 ENTER                                   &kp SPACE  &mo 2  &kp LALT
+                         &gui_app  &mo 3  &kp ENTER                                              &kp SPACE  &mo 2  &kp LALT
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
@@ -130,9 +130,9 @@
             display-name = "MAC";
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                                  &trans                          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                  &trans          &trans          &trans           &trans  &trans  &trans  &trans  &trans  &trans
+&mod_tab LGUI TAB  &trans  &trans  &trans  &trans  &trans                  &trans          &trans          &trans           &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans                          &trans                          &trans  &trans  &trans  &trans  &trans  &trans
-                        &kp LCTRL  &kp LGUI  &trans                                                &trans  &trans  &trans
+                        &kp LCTRL  &trans  &trans                                                &trans  &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
@@ -141,8 +141,8 @@
         lower_layer {
             display-name = "NUMBER";
             bindings = <
-&kp TILDE  &kp EXCL    &kp AT      &kp HASH    &kp DLLR  &kp PRCNT                                      &trans                          &kp CARET  &kp AMPS  &kp ASTRK  &kp LPAR  &kp RPAR  &trans
-&kp GRAVE  &kp N1      &kp N2      &kp N3      &kp N4    &kp N5                       &trans          &trans          &trans           &kp N6     &kp N7    &kp N8     &kp N9    &kp N0    &kp EQUAL
+&kp GRAVE  &kp EXCL    &kp AT      &kp HASH    &kp DLLR  &kp PRCNT                                      &trans                          &kp CARET  &kp AMPS  &kp ASTRK  &kp LPAR  &kp RPAR  &trans
+&trans     &kp N1      &kp N2      &kp N3      &kp N4    &kp N5                       &trans          &trans          &trans           &kp N6     &kp N7    &kp N8     &kp N9    &kp N0    &kp EQUAL
 &trans     &kp MINUS   &kp PLUS    &kp UNDER   &kp BSLH  &kp PIPE        &kp C_MUTE                    &trans                          &none      &kp LBRC  &kp RBRC   &kp LBKT  &kp RBKT  &trans
                                          &trans        &trans        &trans                                                                          &trans     &trans    &trans
             >;
@@ -154,7 +154,7 @@
             display-name = "NAV";
             bindings = <
 &trans       &kp LG(N1)  &kp LG(N2)      &kp LG(N3)      &kp LG(N4)       &kp LG(N5)                                 &trans                          &none  &none     &none     &kp UP        &none          &kp DEL
-&trans       &trans      &trans          &mmv MOVE_UP    &mkp LCLK        &mkp RCLK               &trans         &trans          &trans           &none  &kp HOME  &kp LEFT  &kp RIGHT     &kp END        &none
+&kp LC(TAB)  &trans      &trans          &mmv MOVE_UP    &mkp LCLK        &mkp RCLK               &trans         &trans          &trans           &none  &kp HOME  &kp LEFT  &kp RIGHT     &kp END        &none
 &trans       &trans      &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &trans      &trans                        &trans                          &none  &none     &kp DOWN  &kp LC(LEFT)  &kp LC(RIGHT)  &trans
                                          &trans          &trans           &trans                                                                    &trans  &trans  &trans
             >;
@@ -177,8 +177,8 @@
         app_layer {
             display-name = "APP";
             bindings = <
-&app_first  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&app_first  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans
             >;
@@ -189,8 +189,8 @@
         switch_layer {
             display-name = "SWITCH";
             bindings = <
-&kp TAB  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&kp TAB  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans
             >;
