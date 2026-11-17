@@ -86,16 +86,22 @@
 
         // First Tab (the key left of A) while the thumb is held: swap Gui for Alt, leave Alt
         // held, and move to the SWITCH layer where Tab is a plain Tab, so
-        // further taps keep cycling. Alt goes down before Gui comes up so
-        // the host never sees a bare Gui tap.
+        // further taps keep cycling.
+        //
+        // Gui and Alt must never be down together: Android toggles Caps Lock
+        // when a Gui+Alt chord is released. Gui must not look like a bare
+        // tap either, since that opens the launcher/assistant. So tap right
+        // Ctrl first (any non-Gui key cancels the bare-tap action), then
+        // release Gui, and only then bring Alt down.
         app_first: app_first {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <10>;
             tap-ms = <10>;
             bindings =
-                <&macro_press &kp LALT &mo 6>,
+                <&macro_tap &kp RCTRL>,
                 <&macro_release &kp LGUI>,
+                <&macro_press &kp LALT &mo 6>,
                 <&macro_tap &kp TAB>;
         };
     };
@@ -156,7 +162,7 @@
             bindings = <
 &soft_off       &kp F1      &kp F2        &kp F3        &kp F4        &kp F5                                  &trans                          &kp F10    &kp F7  &kp F8  &kp F9  &kp F11          &kp F12
 &bt BT_CLR_ALL  &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                &trans          &trans          &trans           &tog 1     &kp F4  &kp F5  &kp F6  &kp PRINTSCREEN  &trans
-&trans          &rgb_ug RGB_TOG  &rgb_ug RGB_EFF  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &rgb_ug RGB_HUI  &kp C_MUTE                    &trans                          &none      &kp F1  &kp F2  &kp F3  &bootloader      &sys_reset
+&kp CAPS        &rgb_ug RGB_TOG  &rgb_ug RGB_EFF  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &rgb_ug RGB_HUI  &kp C_MUTE                    &trans                          &none      &kp F1  &kp F2  &kp F3  &bootloader      &sys_reset
                                        &trans       &trans     &trans                                                                   &trans     &trans  &trans
             >;
 
