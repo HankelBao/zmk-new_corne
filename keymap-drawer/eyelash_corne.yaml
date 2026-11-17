@@ -225,7 +225,7 @@ layers:
   - F6
   - PRINTSCREEN
   - {type: held}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - $$mdi:apple-keyboard-caps$$
   - RGB TOG
   - RGB EFF
   - RGB BRI
