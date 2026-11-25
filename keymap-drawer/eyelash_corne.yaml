@@ -44,10 +44,10 @@ layers:
   - {t: /, s: '?'}
   - NAV
   - '&gui_app'
-  - NAV
+  - NUMBER
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - $$mdi:keyboard-space$$
-  - NUMBER
+  - $$mdi:apple-keyboard-shift$$
   - $$mdi:apple-keyboard-option$$
   MAC:
   - {t: '$$mdi:transfer$$', type: trans}
@@ -100,32 +100,32 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   NUMBER:
   - {t: '`', s: '~'}
-  - '!'
-  - '@'
-  - '#'
-  - $
-  - '%'
-  - {t: '$$mdi:transfer$$', type: trans}
-  - ^
-  - '&'
-  - '*'
-  - (
-  - )
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
   - {t: '1', s: '!'}
   - {t: '2', s: '@'}
   - {t: '3', s: '#'}
   - {t: '4', s: $}
   - {t: '5', s: '%'}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
   - {t: '6', s: ^}
   - {t: '7', s: '&'}
   - {t: '8', s: '*'}
   - {t: '9', s: (}
   - {t: '0', s: )}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - '!'
+  - '@'
+  - '#'
+  - $
+  - '%'
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - ^
+  - '&'
+  - '*'
+  - (
+  - )
   - {t: '=', s: +}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '-', s: _}
@@ -142,10 +142,10 @@ layers:
   - {t: ']', s: '}'}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
   - {type: held}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   NAV:
   - {t: '$$mdi:transfer$$', type: trans}
@@ -162,11 +162,11 @@ layers:
   - {t: '$$mdi:minus-circle-outline$$', type: none}
   - $$mdi:backspace-reverse-outline$$
   - Ctl+$$mdi:keyboard-tab$$
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: Gui+6, s: Gui+^}
+  - {t: Gui+7, s: Gui+&}
+  - {t: Gui+8, s: Gui+*}
+  - {t: Gui+9, s: Gui+(}
+  - {t: Gui+0, s: Gui+)}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
@@ -191,7 +191,7 @@ layers:
   - Ctl+$$mdi:arrow-right-bold$$
   - {type: held}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {type: held alternate}
+  - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
